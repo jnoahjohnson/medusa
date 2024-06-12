@@ -27,6 +27,7 @@
     "sharp": "^0.33.4"
   },
   "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.7",
     "@remix-run/dev": "^2.9.2",
     "@types/qrcode": "^1.5.5",
     "@types/react": "^18.2.20",
