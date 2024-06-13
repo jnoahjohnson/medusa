@@ -6,7 +6,7 @@ export const MainLayout: React.FC<{
 }> = ({ children, hideImage }) => {
   return (
     <main className="w-full h-full bg-brand-dark-blue text-white border-b-8 border-brand-pink text-center flex flex-col items-center justify-center relative px-2">
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center justify-center">
+      <div className="w-full max-w-6xl mx-auto flex flex-col items-center justify-center overflow-auto">
         {children}
       </div>
       {!hideImage && (

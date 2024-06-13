@@ -16,9 +16,14 @@ export default function Index() {
   return (
     <MainLayout>
       <h1 className="font-bold text-6xl font-flair mb-4">Welcome!</h1>
-      <Link to="/capture" className="btn">
-        Get Started
-      </Link>
+      <div className="flex gap-4">
+        <Link to="/capture" className="btn">
+          Take Image
+        </Link>
+        <Link to="/capture" className="btn bg-brand-light-blue">
+          View Gallery
+        </Link>
+      </div>
     </MainLayout>
   );
 }

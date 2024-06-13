@@ -5,7 +5,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 
 import stylesheet from "~/styles/tailwind.css?url";
 import "@fontsource-variable/comfortaa";
@@ -13,6 +13,16 @@ import "@fontsource-variable/comfortaa";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
 ];
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Code Adventure Photobooth" },
+    {
+      name: "description",
+      content: "A photobooth for the Code Adventure camp in 2024.",
+    },
+  ];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

@@ -9,6 +9,7 @@ import { supabase } from "~/services/supabase";
 import Webcam from "react-webcam";
 import clsx from "clsx";
 import sharp from "sharp";
+import { verifyImage } from "~/utils/images";
 
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
@@ -53,15 +54,15 @@ export async function action({ request }: ActionFunctionArgs) {
     .from("photos")
     .insert({
       path: data.path,
-      is_approved: true,
+      is_approved: false,
     })
     .select("*");
-
-  console.log({ dbData });
 
   if (dbData.error) {
     return json({ error: dbData.error.message }, { status: 500 });
   }
+
+  verifyImage(dbData.data[0].id, data.path);
 
   return redirect(`/photos/${dbData.data[0].id}`);
 }
